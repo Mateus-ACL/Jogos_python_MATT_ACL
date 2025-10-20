@@ -1,4 +1,5 @@
 import random
+from time import sleep
 
 cor = {'clean':'\033[m',
          'yellow':'\033[33m',
@@ -22,15 +23,17 @@ ESCOLHA:
 [1]: pedra
 [2]: papel
 [3]: tesoura
-"""))[0]
-        if opcao.isnumeric():
-            opcao = int(opcao)
+"""))
+        if opcao and opcao.isnumeric():
+            opcao = int(opcao[0])
             if opcao > 3:
                 print('Escolha uma opção entre 1 e 3')
-            if opcao <= 3:
+                sleep(2)
+            elif opcao <= 3:
                 break
         else:
             print('escolha uma opção númerica entre 1 e 3')
+            sleep(2)
     
     pc = random.randint(1,3)
     print('='*20)
@@ -71,9 +74,11 @@ ESCOLHA:
     print(f'{cor['clean']}')
     
     while True:
-        r = str(input('quer continuar a jogar? ')).strip().upper()[0]
-        if r in 'SN':
-            break
+        r = str(input('quer continuar a jogar? [S/N]')).strip().upper()
+        if r:
+            r = r[0]
+            if r in 'SN':
+                break
     if r == 'N':
         break
 print('Programa encerrado')
