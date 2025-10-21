@@ -39,13 +39,21 @@ while True:
         cord[cord_calc] = numero
 
         for repeticao in range (1,10):
-            #verificação de linha
+#verificação de linha
             linhacheck = ''
             for cont2 in range (1+((repeticao*9)-9),(repeticao*9)+1):
                 linhacheck += str(cord[cont2])
-            print(linhacheck)
+#            print(linhacheck)
             if all(numcheck in linhacheck for numcheck in '123456789'):
                 print('tem todos os numeros')
 
-            #verificação de coluna
+#verificação de coluna        
+            colunacheck = ''
+            for cont3 in range (repeticao,1+((repeticao*9)-9)):
+                colunacheck += str(cord[cont3])
+            print(colunacheck)
+            if all(numcheck in colunacheck for numcheck in '123456789'):
+                print('tem todos os numeros')
+        
+
     
