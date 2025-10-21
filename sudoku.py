@@ -49,7 +49,7 @@ while True:
 
 #verificação de coluna        
             colunacheck = ''
-            for cont3 in range (repeticao,1+((repeticao*9)-9)):
+            for cont3 in range (repeticao,(81-(8-repeticao)),repeticao+9):
                 colunacheck += str(cord[cont3])
             print(colunacheck)
             if all(numcheck in colunacheck for numcheck in '123456789'):
