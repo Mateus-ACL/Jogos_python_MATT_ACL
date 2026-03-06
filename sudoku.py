@@ -20,40 +20,37 @@ while True:
     Y 
     """)
     while True:
-        while True:
-            numero = str(input('Digite o número: '))
-            cord_x = str(input('Digite a cordenada X: '))
-            cord_y = str(input('Digite a cordenada Y: '))
-            if numero.isnumeric() and cord_x.isnumeric() and cord_y.isnumeric():
-               numero = int(numero)
-               cord_x = int(cord_x)
-               cord_y = int(cord_y)
-               break
-            else:
-               print('digite entradas validas')
-        if numero < 1 or numero > 9:
-            print('Digite um número válido')
-        if not (1 <= cord_x <= 9 and 1 <= cord_y <= 9):
-            print('Digite cordenada validas')
-        cord_calc = ((cord_y-1)*9)+cord_x
-        cord[cord_calc] = numero
+        numero = str(input('Digite o número: '))
+        cord_x = str(input('Digite a cordenada X: '))
+        cord_y = str(input('Digite a cordenada Y: '))
+        if numero.isnumeric() and cord_x.isnumeric() and cord_y.isnumeric():
+           numero = int(numero)
+           cord_x = int(cord_x)
+           cord_y = int(cord_y)
+           break
+        else:
+           print('digite entradas validas')
+    if numero < 1 or numero > 9:
+        print('Digite um número válido')
+    if not (1 <= cord_x <= 9 and 1 <= cord_y <= 9):
+        print('Digite cordenada validas')
+    cord_calc = ((cord_y-1)*9)+cord_x
+    cord[cord_calc] = numero
 
-        for repeticao in range (1,10):
+    for repeticao in range (1,10):
 #verificação de linha
-            linhacheck = ''
-            for cont2 in range (1+((repeticao*9)-9),(repeticao*9)+1):
-                linhacheck += str(cord[cont2])
-#            print(linhacheck)
-            if all(numcheck in linhacheck for numcheck in '123456789'):
-                print('tem todos os numeros')
+        linhacheck = ''
+        for cont2 in range (1+((repeticao*9)-9),(repeticao*9)+1):
+            linhacheck += str(cord[cont2])
+        if all(numcheck in linhacheck for numcheck in '123456789'):
+            print('tem todos os numeros')
 
 #verificação de coluna        
-            colunacheck = ''
-            for cont3 in range (repeticao,82,9):
-                colunacheck += str(cord[cont3])
-            print(colunacheck)
-            if all(numcheck in colunacheck for numcheck in '123456789'):
-                print('tem todos os numeros')
+        colunacheck = ''
+        for cont3 in range (repeticao,82,9):
+            colunacheck += str(cord[cont3])
+        if all(numcheck in colunacheck for numcheck in '123456789'):
+            print('tem todos os numeros')
         
 
     
